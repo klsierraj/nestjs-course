@@ -3,10 +3,15 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import './config/dotenv.config';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  app.useGlobalPipes( new ValidationPipe({
+    whitelist: true,
+    forbidNonWhitelisted: true,
+  }));
   const options = new DocumentBuilder()
     .setTitle('Hello World example')
     .setDescription('The Hello World API description')
