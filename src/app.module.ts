@@ -12,9 +12,9 @@ import { AppService } from './app.service';
 // Configs
 import appConfig from './config/app.config';
 import TypeormConfig from './config/typeorm.config';
-import { CommonModule } from './common/common.module';
 import { TodosModule } from './todos/todos.module';
 import { ProductsModule } from './products/products.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [

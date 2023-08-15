@@ -2,23 +2,23 @@ version: '3.5'
 
 services:
   postgres:
-    container_name: postgres_container
+    container_name: postgres_container_course
     image: postgres:14.3-alpine3.15
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
-      - '5433:5432'
+      - '5430:5432'
     networks:
       - postgres
     restart: unless-stopped
 
   pgadmin:
-    container_name: pgadmin_container
+    container_name: pgadmin_container_course
     image: dpage/pgadmin4:6.9
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com

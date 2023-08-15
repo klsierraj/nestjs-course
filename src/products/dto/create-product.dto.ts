@@ -4,6 +4,7 @@ export class CreateProductDto {
 
 @IsString()
 @MinLength(1)
+@IsOptional()
  title: string;
 
  @IsNumber()
@@ -26,9 +27,22 @@ export class CreateProductDto {
  
  @IsString({each: true})
  @IsArray()
- sizes: string[];
+ @IsOptional()
+ sizes?: string[];
 
 @IsIn(['men', 'women', 'kid', 'unisex'])
- gender: string;
+@IsOptional()
+ gender?: string;
+
+ @IsString({each: true})
+ @IsArray()
+ @IsOptional()
+ tags: string[];
+
+ @IsString({each: true})
+ @IsArray()
+ @IsOptional()
+ images?: string[];
+
 
 }
